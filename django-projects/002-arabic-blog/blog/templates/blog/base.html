@@ -1,0 +1,164 @@
+{% load static %}
+<!doctype html>
+<html lang="ar">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'blog/images/favicon.ico' %}">
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>مدونة</title>
+  {% endif %}
+</head>
+
+<body>
+
+  <!-- Navbar start -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'blog:index' %}">
+        <img width="30px" alt="logo" src="{% static 'blog/images/mim-logo.png' %}" alt="">
+        مدونة
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'blog:index' %}">الرئيسية <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:about' %}">من أنا</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              دوراتي
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">بايثون</a>
+              <a class="dropdown-item" href="#">جانغو</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">فلاسك</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link">الدخول</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">التسجيل</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Navbar end -->
+
+
+  <!-- Blog start-->
+  <section>
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-8">
+
+          {% block content %}
+          {% endblock %}
+
+        </div>
+        <div class="col-md-4">
+          <!-- Card 1 -->
+          <div class="card mb-3">
+            <h3 class="text-center bg-secondary text-light p-2">اخر التدوينات</h3>
+            {% include 'blog/latest_post.html' %}
+          </div>
+          <!-- Card 2 -->
+          <div class="card mb-3">
+            <h3 class="text-center bg-secondary text-light p-2">اخر التعليقات</h3>
+            <ul>
+              <li><a href="#">Post 1</a></li>
+              <li><a href="#">Post 2</a></li>
+              <li><a href="#">Post 3</a></li>
+              <li><a href="#">Post 4</a></li>
+              <li><a href="#">Post 5</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Blog End -->
+
+
+  <!-- Footer Start-->
+  <footer class="bg-secondary">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md">
+                    <div class="card-group mt-3">
+                        <div class="card m-3">
+                            <h3 class="card-title text-center border-bottom p-2 m-3">من أنا</h3>
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <img src="{% static 'blog/images/mim-logo.png' %}" alt="شعار مدونة" width="100px">
+                                </div>
+                                <p>
+                                    أحمد أبو عيسى مالك قناة شبكة علوم. أعمل كرئيس قسم لغة فرنسية ومدرب إلكتروني ومهتم
+                                    بمجال
+                                    تطوير الويب
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="card m-3">
+                            <h3 class="card-title text-center border-bottom p-2 m-3">مواقع هامة</h3>
+                            <div class="card-body">
+                                <ul>
+                                    <li><a class="text-dark" href="https://www.python.org/doc/">وثائق بايثون</a></li>
+                                    <li><a class="text-dark" href="https://docs.djangoproject.com/en/2.2/">وثائق
+                                            دجانجو</a></li>
+                                    <li><a class="text-dark" href="https://developer.mozilla.org/">توثيق MDN</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card m-3">
+                            <h3 class="card-title text-center border-bottom p-2 m-3">وسائل التواصل الاجتماعي</h3>
+                            <h4 class="card-body text-center">
+                                <a class="text-secondary" href=""><i class="fab fa-facebook"></i></a>
+                                <a class="text-secondary" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="text-secondary" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="text-secondary" href=""><i class="fab fa-youtube"></i></a>
+                                <a class="text-secondary" href=""><i class="fab fa-telegram"></i></a>
+                                <a class="text-secondary" href=""><i class="fab fa-linkedin"></i></a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-md text-center">
+                    <small class="text-light">&copy; جميع الحقوق محفوظة {% now 'Y' %}</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+  <!-- Footer End-->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'blog/js/jquery-3.4.1.slim.min.js' %}"></script>
+  <script src="{% static 'blog/js/popper.min.js' %}"></script>
+  <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'blog/js/fontawesome.all.min.js' %}"></script>
+</body>
+
+</html>

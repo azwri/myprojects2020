@@ -1,0 +1,5 @@
+<ul class="list-group">
+    {% for post in posts %}
+    <li class="list-group-item"><a href="{% url 'blog:detail' post.title %}" class="text-dark">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
