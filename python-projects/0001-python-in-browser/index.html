@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="brython.js"></script>
+    <script src="brython_stdlib.js"></script>
+
+    <title>Python In Browser</title>
+  </head>
+  <body onload="brython()">
+    <h1>Python In Browser</h1>
+
+    <h2 id="hello"></h2>
+    
+    <button id="alert-btn">Alert - Console - Insert</button>
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name"/>
+    <h3 id="_name"></h3>
+    <button id="name-btn">Name</button>
+
+    <script type="text/python" id="script0">
+      from browser import document, console, alert
+
+      def show(e):
+          console.log(e)
+          console.log('Hello Wordl')
+          alert('Hello World')
+          document['hello'].textContent = 'Hello World'
+
+      document['alert-btn'].bind('click', show)
+
+      def name(e):
+          n = document['name'].value
+          document['_name'].textContent = f'{n} Abdulrahman'.upper()
+      document['name-btn'].bind('click', name)
+      
+
+    </script>
+  </body>
+</html>
