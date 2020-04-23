@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Post, Comment
 
 def index(request):
     context = {}
@@ -20,8 +20,10 @@ def detail(request, title):
     # context['post'] = get_object_or_404(Post, pk=post_id)
     # post = Post.objects.get(pk=post_id)
     post = Post.objects.get(title=title)
+    comments = post.comments.filter(active=True)
     context['post'] = post
     context['title'] = post
+    context['comments'] = comments
 
 
     return render(request, 'blog/detail.html', context)
