@@ -13,6 +13,19 @@
   <p>{{ post.content }}</p>
 </div>
 
+<div>
+  <h1 class="border-bottom">التعليقات {{ comments.count }}</h1>
+  {% for comment in comments  %}
+    <small>{{ comment.name }} في {{comment.comment_date|date:'d-m-Y'}}</small>
+    <p>{{comment.body}}</p>
+  {% empty %}
+
+    لايوجد تعليقات
+
+  {% endfor %}
+
+</div>
+
 
 
 {% endblock %}
