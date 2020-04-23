@@ -1,4 +1,6 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
 
 
 {% block content %}
@@ -26,6 +28,14 @@
 
 </div>
 
+<h3 class="border-bottom pb-3 mb-3 mt-3">اضافة تعليق جديد</h3>
+<div class="border p-4 mb-5 mt-4">
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ comment_form|crispy }}
+    <input class="btn btn-secondary" type="submit" value="اضافة تعليق">
+  </form>
+</div>
 
 
 {% endblock %}

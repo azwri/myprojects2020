@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
+from .forms import NewComment
 
 def index(request):
     context = {}
@@ -21,9 +22,11 @@ def detail(request, title):
     # post = Post.objects.get(pk=post_id)
     post = Post.objects.get(title=title)
     comments = post.comments.filter(active=True)
+    comment_form = NewComment()
     context['post'] = post
     context['title'] = post
     context['comments'] = comments
+    context['comment_form'] = comment_form
 
 
     return render(request, 'blog/detail.html', context)
