@@ -1,10 +1,13 @@
-class MyApp{
-  String name;
-  int ID;
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(MyApp());
 }
 
-var app = MyApp();
-void main() {
-  app.name = 'Abdulrahman';
-  print(app.name);
+class MyApp extends StatelessWidget{
+  Widget build(BuildContext context){
+    return MaterialApp(
+      home: Text('Hello Flutter'),
+      );
+  }
 }

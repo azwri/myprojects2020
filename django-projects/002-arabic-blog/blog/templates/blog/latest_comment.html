@@ -1,0 +1,7 @@
+<ul class="list-group">
+    {% for comment in comments %}
+    <li class="list-group-item"><a href="{% url 'blog:detail' comment.post.title %}" class="text-dark">{{ comment.name }}</a></li>
+    {% empty %}
+    <li class="list-group-item">لاتوجد تعليقات</li>
+    {% endfor %}
+</ul>
